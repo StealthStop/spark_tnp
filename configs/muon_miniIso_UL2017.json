@@ -1,0 +1,54 @@
+{
+  "efficiencies": [
+    [ "MiniIsoTight", "IDTight" ]
+  ],
+  "selection": "tag_pt>20 and tag_abseta<2.4 and tag_HLT_IsoMu27_v==1",
+  "definitions": {
+    "tag_abseta": "abs(tag_eta)",
+    "probe_abseta": "abs(probe_eta)",
+    "IDTight": "probe_isTight == 1",
+    "IDLoose": "probe_isLoose == 1",
+    "MiniIsoTight": "probe_miniIso < 0.1",
+    "MiniIsoLoose": "probe_miniIso < 0.4"
+  },
+  "binning": {
+    "pt":  [ 20, 30, 40, 50, 60, 120 ],
+    "abseta": [ 0, 0.9, 1.2, 2.1, 2.4 ],
+    "mass": "np.array(range(60*4,140*4+1)) * 0.25",
+    "mcMass": "np.array(range(60*4,140*4+1)) * 0.25"
+  },
+  "variables": {
+    "pt": { "variable": "probe_pt", "pretty": "p_{T} (GeV)" },
+    "abseta": { "variable": "probe_abseta", "pretty": "|#eta|" },
+    "mass": { "variable": "pair_mass", "pretty": "m(#mu#mu) (GeV)" },
+    "mcMass": { "variable": "pair_mass", "pretty": "m(#mu#mu) (GeV)" }
+  },
+  "fitVariable": "mass",
+  "fitVariableGen": "mcMass",
+  "binVariables": [ [ "abseta", "pt" ] ],
+  "shifts": {},
+  "fitShifts": {
+    "AltSig": { "fitType": "AltSig" },
+    "AltBkg": { "fitType": "AltBkg" },
+    "massBinUp": { "shiftType": "massBinUp" },
+    "massBinDown": { "shiftType": "massBinDown" },
+    "massRangeUp": { "shiftType": "massRangeUp" },
+    "massRangeDown": { "shiftType": "massRangeDown" }
+  },
+  "systematics": {
+    "SF": {
+      "fitTypes": [ "AltSig" ],
+      "shiftTypes": [ "massBin", "massRange" ]
+    },
+    "dataEff": {
+      "fitTypes": [ "AltSig" ],
+      "shiftTypes": [ "massBin", "massRange" ]
+    },
+    "mcEff": {
+      "fitTypes": [],
+      "shiftTypes": [ "massRange" ]
+    }
+  }
+}
+
+
