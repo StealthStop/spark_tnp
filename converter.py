@@ -115,7 +115,7 @@ def run_all(particle, resonance, era, dataTier, subEra=None, customDir='', baseD
         .config("spark.executor.extraClassPath", local_jars)\
         .config("spark.dynamicAllocation.maxExecutors", "100")\
         .config("spark.driver.memory", "6g")\
-        .config("spark.executor.memory", "4g")\
+        .config("spark.executor.memory", "6g")\
         .config("spark.executor.cores", "2")
     
     if use_local is True:

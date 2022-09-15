@@ -8,7 +8,8 @@
     "probe_abseta": "abs(probe_eta)",
     "IDTight": "probe_isTight == 1",
     "IDLoose": "probe_isLoose == 1",
-    "MiniIsoTight": "probe_miniIso < 0.1",
+    "IDMedium": "probe_isMedium == 1",
+    "MiniIsoTight": "probe_miniIso < 0.2",
     "MiniIsoLoose": "probe_miniIso < 0.4"
   },
   "binning": {
