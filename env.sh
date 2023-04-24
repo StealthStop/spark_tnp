@@ -10,7 +10,7 @@ if [[ "$HOSTNAME" == *"ithdp"* ]]; then
 elif [[ "$HOSTNAME" == *"lxplus"* ]]; then
   # lxplus
   echo "Sourcing lxplus environment..."
-  source /cvmfs/sft.cern.ch/lcg/etc/hadoop-confext/hadoop-swan-setconf.sh analytix
+  source /cvmfs/sft.cern.ch/lcg/etc/hadoop-confext/hadoop-swan-setconf.sh analytix 3.2 spark2
   echo "Done!"
 else
   echo "[Warning] Environment can only be lxplus or the CERN hadoop edge nodes. See README for more details"
