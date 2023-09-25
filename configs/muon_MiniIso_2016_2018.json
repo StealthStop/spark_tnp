@@ -1,9 +1,10 @@
 {
   "efficiencies": [
-    [ "MiniIsoTight", "IDTight" ]
+    [ "Impact", "MediumCutAndTightIso" ]
   ],
-  "selection": "tag_pt>26 and tag_abseta<2.4 and tag_HLT_IsoMu24_v==1 and tag_PFIso<0.2 and IP_cuts",
+  "selection": "tag_pt>26 and tag_abseta<2.4 and tag_HLT_IsoMu24_v==1 and tag_PFIso<0.2 and IPTag_cuts",
   "definitions": {
+     "IPTag_cuts": "abs(tag_dz) < 0.5 and abs(tag_dxy) < 0.2",
      "IP_cuts": "abs(pair_dz)<0.5 and abs(tag_dz) < 0.5 and abs(probe_dz) < 0.5 and abs(tag_dxy) < 0.2 and abs(probe_dxy) < 0.2",
     "tag_PFIso": "(tag_pfIso04_charged + (0.5 * (((tag_pfIso04_neutral+tag_pfIso04_photon-0.5*tag_pfIso04_sumPU) + (0.0)) + abs((tag_pfIso04_neutral+tag_pfIso04_photon-0.5*tag_pfIso04_sumPU) - (0.0)))))/tag_pt",
     "tag_abseta": "abs(tag_eta)",
@@ -12,7 +13,9 @@
     "IDLoose": "probe_isLoose == 1",
     "IDMedium": "probe_isMedium == 1",
     "MiniIsoTight": "probe_miniIso < 0.2",
-    "MiniIsoLoose": "probe_miniIso < 0.4"
+    "MiniIsoLoose": "probe_miniIso < 0.4",
+    "Impact" : "probe_dz < 0.5 and probe_dxy < 0.2",
+    "MediumCutAndTightIso" : "probe_isMedium == 1 and probe_miniIso < 0.2"
   },
   "binning": {
     "pt":  [ 20, 30, 40, 50, 60, 120 ],
